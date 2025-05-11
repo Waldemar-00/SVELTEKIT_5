@@ -2,4 +2,4 @@
     let {data} = $props()
 </script>
 
-<h1>{data.about.title.toUpperCase()}</h1>
+<h1>{data.home.title.toUpperCase()}</h1>
