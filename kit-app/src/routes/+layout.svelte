@@ -9,7 +9,7 @@
     {/each}
 </header>
 {@render children()}
-<h2>{data.post.title}</h2>
+
 
 <style>
     header{
