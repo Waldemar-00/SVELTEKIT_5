@@ -1,6 +1,6 @@
 <script>
     let {data, children} = $props()
-    let keys = $derived(Object.keys(data))
+    let keys = $derived(Object.keys(data).filter(k => k !== 'post'))
 </script>
 
 <header>
@@ -9,7 +9,7 @@
     {/each}
 </header>
 {@render children()}
-
+<h2>{data.post.title}</h2>
 
 <style>
     header{
