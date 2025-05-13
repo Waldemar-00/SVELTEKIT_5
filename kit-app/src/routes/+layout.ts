@@ -9,6 +9,7 @@ export const load: LayoutLoad = async ({ fetch }) => {
 		about: { title: 'About Svelte' },
 		settings: { title: 'Sveltekit settings' },
 		articles: { title: 'Page with articles' },
-		calculate: { title: 'Calculate' }
+		calculate: { title: 'Calculate' },
+		servers: { title: "Page's server and universal server" }
 	};
 };
