@@ -14,9 +14,9 @@
         })
         result = await response.json()
     }
-    async function fallBack() {
+    async function fallBack(method: string) {
         const response = await fetch('/api', {
-            method: 'PUT',
+            method,
             headers: {
                 'content-type': 'text/plain'
             },
@@ -32,7 +32,9 @@
     <input type=number bind:value={a}>
     <input type=number bind:value={b}>
     <button onclick={() =>calculate(a, b)}>Calculate</button>
-    <button onclick={fallBack}>Get fallback</button>
+    <button onclick={() => fallBack('PUT')}>Get fallback PUT</button>
+    <button onclick={() => fallBack('PATCH')}>Get fallback PATCH</button>
+    <button onclick={() => fallBack('DELETE')}>Get fallback DELETE</button>
 </div>
 <style>
     .calculate {
