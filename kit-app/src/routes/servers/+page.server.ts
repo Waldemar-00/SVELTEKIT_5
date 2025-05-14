@@ -4,7 +4,10 @@ const user = {
 	name: 'John',
 	age: 78
 };
-export const load: PageServerLoad = async () => {
+export const load: PageServerLoad = async ({ url, route, params }) => {
+	console.log(url, 'url');
+	console.log(route.id);
+	console.log(params, 'params');
 	return {
 		user
 	};
