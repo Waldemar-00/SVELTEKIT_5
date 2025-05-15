@@ -1,4 +1,5 @@
 <script>
+    import '../global.css'
     let {data, children} = $props()
     let keys = $derived(Object.keys(data).filter(k => k !== 'post'))
 </script>
@@ -12,7 +13,7 @@
 
 
 <style>
-    header{
+    header {
         display: flex;
         flex-direction: row;
         gap: 1rem;
