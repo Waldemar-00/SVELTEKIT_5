@@ -1,10 +1,33 @@
 import type { LayoutServerLoad } from './$types';
 
-async function getPost() {
+// async function getPost() { // on client in browser
+// 	const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
+// 	return await response.json();
+// }
+// export const load: LayoutServerLoad = async ({ cookies }) => {
+// 	cookies.set('name', 'USER', {
+// 		path: '/',
+// 		httpOnly: true,
+// 		maxAge: 3600,
+// 		// expires: new Date('30-05-2025'), wrong data
+// 		sameSite: 'lax'
+// 		// secure: true for PRODUCTION
+// 	});
+// 	return {
+// 		home: { title: 'Welcome to SvelteKit' },
+// 		about: { title: 'About Svelte' },
+// 		settings: { title: 'Sveltekit settings' },
+// 		articles: { title: 'Page with articles' },
+// 		calculate: { title: 'Calculate' },
+// 		servers: { title: "Page's server and universal server" },
+// 		cookies: { title: 'Cookies on the Server!' },
+// 		post: await getPost() // on client from browser
+// 	};
+// };
+
+export const load: LayoutServerLoad = async ({ cookies, fetch }) => {
 	const response = await fetch('https://jsonplaceholder.typicode.com/posts/1');
-	return await response.json();
-}
-export const load: LayoutServerLoad = async ({ cookies }) => {
+	const post = await response.json();
 	cookies.set('name', 'USER', {
 		path: '/',
 		httpOnly: true,
@@ -21,6 +44,6 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 		calculate: { title: 'Calculate' },
 		servers: { title: "Page's server and universal server" },
 		cookies: { title: 'Cookies on the Server!' },
-		post: await getPost()
+		post
 	};
 };
