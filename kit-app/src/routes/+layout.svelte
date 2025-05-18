@@ -6,7 +6,15 @@
 
 <header>
     {#each keys as key, index (key + index) }
-        <a href="/{keys[index]}">{keys[index].toLocaleUpperCase()}</a>
+    {#if key === "parent"}
+        <a href="/{key}">{key.toLocaleUpperCase()}</a>
+         <a href="/{key}/child">CHILD</a>
+          <a href="/{key}/child/baby">BABY</a>
+         {:else}
+         <a href="/{key}">{key.toLocaleUpperCase()}</a>
+    {/if}
+
+
     {/each}
 </header>
 {@render children()}

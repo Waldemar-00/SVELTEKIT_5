@@ -54,6 +54,7 @@ export const load: LayoutServerLoad = async ({ cookies, fetch, setHeaders }) => 
 		calculate: { title: 'Calculate' },
 		servers: { title: "Page's server and universal server" },
 		cookies: { title: 'Cookies on the Server!' },
+		parent: {},
 		post,
 	}
 }
