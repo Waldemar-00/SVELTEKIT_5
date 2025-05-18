@@ -25,7 +25,7 @@ import type { LayoutServerLoad } from './$types'
 // 	};
 // };
 
-export const load: LayoutServerLoad = async ({ cookies, fetch, setHeaders }) => {
+export const load: LayoutServerLoad = async ({ fetch, setHeaders, locals }) => {
 	const response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
 	const age = response.headers.get('age')
 	const cacheControl = response.headers.get('cache-control')
@@ -35,16 +35,8 @@ export const load: LayoutServerLoad = async ({ cookies, fetch, setHeaders }) => 
 			'cache-control': cacheControl,
 		})
 	}
-
 	const post = await response.json()
-	cookies.set('name', 'USER', {
-		path: '/',
-		httpOnly: true,
-		maxAge: 3600,
-		expires: new Date(Date.now() + 3600 * 1000),
-		sameSite: 'lax',
-		// secure: true for PRODUCTION
-	})
+	console.log(locals, 'USER_COOKIES IN LAYOUT')
 
 	return {
 		home: { title: 'Welcome to SvelteKit' },
