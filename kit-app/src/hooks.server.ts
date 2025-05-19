@@ -13,7 +13,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 		// secure: true for PRODUCTION
 	})
 	const userCookie = event.cookies.get('name')
-	console.log(userCookie, 'USER_COOKIES IN HOOKS')
+	// console.log(userCookie, 'USER_COOKIES IN HOOKS')
 	if (userCookie) event.locals = userCookie
 	return await resolve(event)
 }
