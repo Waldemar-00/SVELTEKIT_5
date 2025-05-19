@@ -1,5 +1,5 @@
 <script>
-    let {data} = $props()
+    import {page} from '$app/state'
 </script>
 
-<h1>{data.about.title.toUpperCase()}</h1>
+<h1>{page.data.about.title.toUpperCase()}</h1>

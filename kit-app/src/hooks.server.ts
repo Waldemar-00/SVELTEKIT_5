@@ -1,4 +1,4 @@
-import type { Handle, HandleFetch } from '@sveltejs/kit'
+import type { Handle, HandleFetch, HandleServerError } from '@sveltejs/kit'
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (event.url.pathname.startsWith('/.well-known/appspecific/com.chrome.devtools')) {
@@ -29,4 +29,10 @@ export const handleFetch: HandleFetch = async ({ request, fetch }) => {
 		)
 	}
 	return fetch(request)
+}
+
+export const handleServerError: HandleServerError = async ({ message }) => {
+	return {
+		message,
+	}
 }
