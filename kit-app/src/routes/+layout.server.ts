@@ -25,7 +25,7 @@ import type { LayoutServerLoad } from './$types'
 // 	};
 // };
 
-export const load: LayoutServerLoad = async ({ fetch, setHeaders, locals }) => {
+export const load: LayoutServerLoad = async ({ fetch, setHeaders }) => {
 	const response = await fetch('https://jsonplaceholder.typicode.com/posts/1')
 	const age = response.headers.get('age')
 	const cacheControl = response.headers.get('cache-control')
@@ -36,7 +36,7 @@ export const load: LayoutServerLoad = async ({ fetch, setHeaders, locals }) => {
 		})
 	}
 	const post = await response.json()
-	console.log(locals, 'USER_COOKIES IN LAYOUT')
+	// console.log(locals, 'USER_COOKIES IN LAYOUT')
 
 	return {
 		home: { title: 'Welcome to SvelteKit' },
@@ -48,6 +48,7 @@ export const load: LayoutServerLoad = async ({ fetch, setHeaders, locals }) => {
 		cookies: { title: 'Cookies on the Server!' },
 		parent: { title: 'Parent page!' },
 		redirect: { title: 'This page you will not see!' },
+		invalidate: { title: 'Invalidate, invalidateAll, depends and act.' },
 		post,
 	}
 }
