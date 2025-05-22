@@ -1,4 +1,5 @@
 <script>
+    import '../global.css'
     let {data} = $props()
     let gritting = $state(data.gritting)
 </script>
@@ -11,15 +12,4 @@
     h4 {
         color: red
     }
-    button {
-        padding: 1rem;
-        background-color: #fff;
-        border-color: blue;
-        display: block;
-        margin: 1rem auto;
-        color: green;
-        border-radius: 1rem;
-        cursor: pointer;
-    }
-
 </style>

@@ -40,6 +40,7 @@ export const load: LayoutServerLoad = async ({ fetch, setHeaders }) => {
 
 	return {
 		home: { title: 'Welcome to SvelteKit' },
+		form: { title: 'Form for YOU' },
 		about: { title: 'About Svelte' },
 		settings: { title: 'Sveltekit settings' },
 		articles: { title: 'Page with articles' },

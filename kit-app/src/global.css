@@ -4,3 +4,13 @@ h2 {
 	margin: 3rem auto;
 	color: green;
 }
+button {
+	padding: 1rem;
+	background-color: #fff;
+	border-color: blue;
+	display: block;
+	margin: 1rem auto;
+	color: green;
+	border-radius: 1rem;
+	cursor: pointer;
+}
