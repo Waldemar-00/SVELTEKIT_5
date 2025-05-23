@@ -1,4 +1,6 @@
 <script>
+	import { enhance } from '$app/forms'
+
     let {data, form} = $props()
     $inspect(form)
     // let login = $state(false)
@@ -11,10 +13,10 @@
     {:else}
     <h2 color='red'>Write YOUR data</h2>
 {/if}
-<form method="POST" action="?/register">
-    <input type="text" name='name' placeholder="name" required value={form?.name}>
-    <input type="text" name="email" placeholder="email" required value={form?.email}>
-    <input type="number" name="age" placeholder="age" value={form?.age}>
+<form method="POST" action="?/register" use:enhance>
+    <input type="text" name='name' placeholder="name" required>
+    <input type="text" name="email" placeholder="email" required>
+    <input type="number" name="age" placeholder="age" required>
     <!-- <button formaction={login ? '?/login' : "?/register"}>Login</button> -->
     <button formaction="?/register">Register</button>
     <button formaction='?/login'>Login</button>
