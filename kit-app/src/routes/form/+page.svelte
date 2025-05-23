@@ -1,13 +1,20 @@
 <script>
-    let {data} = $props()
+    let {data, form} = $props()
+    $inspect(form)
     // let login = $state(false)
 </script>
 <h1>{data.form.title}</h1>
-
+{#if form?.success}
+    <h2>Success {form?.event} </h2>
+    {:else if form?.age}
+    <h2 color='red'>Is age{form?.age}? {form?.message}</h2>
+    {:else}
+    <h2 color='red'>Write YOUR data</h2>
+{/if}
 <form method="POST" action="?/register">
-    <input type="text" name='name' placeholder="name" required>
-    <input type="text" name="email" placeholder="email" required>
-    <input type="number" name="age" placeholder="age">
+    <input type="text" name='name' placeholder="name" required value={form?.name}>
+    <input type="text" name="email" placeholder="email" required value={form?.email}>
+    <input type="number" name="age" placeholder="age" value={form?.age}>
     <!-- <button formaction={login ? '?/login' : "?/register"}>Login</button> -->
     <button formaction="?/register">Register</button>
     <button formaction='?/login'>Login</button>
